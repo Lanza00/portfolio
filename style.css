@@ -232,6 +232,7 @@ nav .nav-container {
 .contact-icon {
     font-size: 1.2rem;
     width: 35px;
+    margin-right: 10px;
     height: 35px;
     background: #1a1a2e;
     border-radius: 50%;
