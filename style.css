@@ -138,6 +138,15 @@ nav .nav-container {
     display: block;
 }
 
+.about-frame {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(30,26,46,0.10), 0 1.5px 6px rgba(92,79,110,0.08);
+    padding: 2rem 1.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
 /* Experience Section */
 .experience-timeline {
     display: flex;
@@ -366,5 +375,49 @@ footer {
     }
     .experience-date {
         text-align: center;
+    }
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1rem;
+}
+.tech-tag {
+    background: #f1f3f6;
+    color: #333;
+    border-radius: 20px;
+    padding: 0.4em 1.2em 0.4em 0.9em;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(30,26,46,0.06);
+    font-weight: 500;
+    margin-bottom: 0.3em;
+}
+.tech-icon {
+    margin-right: 0.6em;
+    font-size: 1.6em;
+    color: #4768be !important;
+    min-width: 1.6em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.tech-icon svg path,
+.tech-icon svg rect {
+    fill: #4768be !important;
+}
+@media (max-width: 600px) {
+    .tech-tags {
+        gap: 0.4rem;
+    }
+    .tech-tag {
+        font-size: 0.95rem;
+        padding: 0.35em 0.8em 0.35em 0.7em;
+    }
+    .tech-icon {
+        font-size: 1.1em;
     }
 }
