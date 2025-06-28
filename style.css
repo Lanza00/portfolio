@@ -206,23 +206,27 @@ nav .nav-container {
 .contact-details {
     display: flex;
     flex-direction: row;
+    gap: 10px;
+    width: 100%;
     justify-content: center;
-    gap: 2rem;
-    margin-top: 1rem;
     flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0 10px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .contact-item {
+    width: auto;
+    min-width: fit-content;
+    justify-content: center;
+    padding: 12px 15px;
+    white-space: nowrap;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 1rem 1.5rem;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    white-space: nowrap;
-    min-width: fit-content;
 }
 
 .contact-icon {
@@ -312,5 +316,26 @@ footer {
 
     .about-image .profile-placeholder {
         margin: auto;
+    }
+
+    .contact-content {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    
+    /* Contact responsive for mobile - keep in one line */
+    .contact-details {
+        flex-direction: row;
+        gap: 8px;
+        justify-content: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 0 5px;
+    }
+    
+    .contact-item {
+        padding: 10px 12px;
+        min-width: fit-content;
+        flex-shrink: 0;
     }
 }
