@@ -536,3 +536,8 @@ footer a:hover .fab {
         padding-bottom: 0.7rem;
     }
 }
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #4768be !important;
+}
