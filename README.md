@@ -80,7 +80,6 @@ You can personalize the content by editing:
 Feel free to reach out via:
 
 - 📧 Email: aznalanas.azlan@gmail.com  
-- 📱 Phone: +60 10-353 3439  
 - 📍 Location: Petaling Jaya, Selangor
 
 ---
