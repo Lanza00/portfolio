@@ -1,0 +1,28 @@
+[
+  {
+    "date": "2026-11-17",
+    "status": "ongoing",
+    "title": "Refactoring old code and improving myself",
+    "body": "Going back through some of my older projects to refactor and update the code, cleaning up structure and fixing things I would do differently now. It's also my way of practising and levelling up as a developer."
+  },
+  {
+    "date": "2026-11-17",
+    "status": "ongoing",
+    "title": "Rebuilding this portfolio",
+    "body": "Rewriting the site with a cleaner layout and three parts: About, Projects and Posts. Posts is where I will share what I am working on, what is in progress and what I plan next."
+  },
+  {
+    "date": "2026-11-16",
+    "status": "completed",
+    "title": "Shipped the Wonderland party mini-game",
+    "body": "A browser mini-game themed on Alice in Wonderland, built for a group activity. Players try to place the item without looking at the character.",
+    "link": "https://github.com/Lanza00/mini-game-v1",
+    "linkText": "View on GitHub"
+  },
+  {
+    "date": "2026-11-08",
+    "status": "planned",
+    "title": "Auto-subtitle app for my videos",
+    "body": "Planning a small app that transcribes my edited videos (Malay and English) and adds TikTok-style subtitles. Running locally first, possibly hosted later."
+  }
+]

@@ -1,281 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <script src="js/navigation.js" defer></script> -->
-    <script src="js/animations.js" defer></script>
-    
-    <title>My Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aznal Anas - Software Developer. About, projects and what I'm working on.">
+  <title>Aznal Anas | Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-<!-- test -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-            <div class="container-fluid">
-                <div class="avatar-section d-flex align-items-center">
-                    <div class="avatar me-2">
-                        <span>AA</span>
-                    </div>
-                    <span class="name">Aznal Anas</span>
-                </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="nav-menu">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav-menu">
-                        <li class="nav-item"><a class="nav-link" href="#about"><i class="fa fa-user"></i> About Me</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#experience"><i class="fa fa-briefcase"></i> Experience</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects"><i class="fa fa-folder-open"></i> Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact"><i class="fa fa-envelope"></i> Contact Me</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="#top" class="brand">Aznal Anas</a>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="fa fa-bars"></i></button>
+      <nav class="site-nav" id="site-nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#posts">Posts</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Main Content -->
-    <main>
-        <!-- About Me Section -->
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="row justify-content-center">
-                    <div class="col-lg-9">
-                        <div class="card border-0 shadow-sm mb-4 p-3">
-                            <div class="row g-0 align-items-center">
-                                <div class="col-md-4 d-flex justify-content-center mb-3 mb-md-0">
-                                    <div class="about-image profile-placeholder bg-white p-2">
-                                        <img src="images/profile.jpg" alt="Profile Picture" class="img-fluid rounded-3">
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="about-text ps-md-3">
-                                        <section class="about-summary">
-                                            <p>Software Engineer with 2 years of dedicated experience in developing and 
-                                                maintaining high-performance web applications. Skilled in full-stack development,
-                                                with deep expertise in PHP (including migration from PHP 4 to PHP 8), 
-                                                MySQL database management, HTML, CSS, and the Laravel framework. 
-                                                Successfully contributed to multiple projects, enhancing system 
-                                                stability and user experience. Adept at troubleshooting and optimizing 
-                                                existing software, ensuring seamless operation. Actively exploring core 
-                                                programming languages (Python, Java, JavaScript), data structures and algorithms, 
-                                                and potentially specific domains like Machine Learning. Passionate about building 
-                                                robust, scalable solutions and eager to take on new challenges in a collaborative 
-                                                environment.</p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <section class="about-tech-stack">
-                            <h2 class="section-title fs-4 mb-3">Tech Stack & Skills</h2>
-                            <div class="d-flex flex-wrap justify-content-center gap-2 tech-tags">
-                                <span class="tech-tag"><i class="fab fa-bootstrap tech-icon"></i> Bootstrap</span>
-                                <span class="tech-tag"><i class="fab fa-html5 tech-icon"></i> HTML5</span>
-                                <span class="tech-tag"><i class="fab fa-css3-alt tech-icon"></i> CSS3</span>
-                                <span class="tech-tag"><i class="fab fa-php tech-icon"></i> PHP</span>
-                                <span class="tech-tag"><i class="fab fa-js-square tech-icon"></i> JavaScript</span>
-                                <span class="tech-tag"><i class="fab fa-python tech-icon"></i> Python</span>
-                                <span class="tech-tag"><i class="fab fa-java tech-icon"></i> Java</span>
-                                <span class="tech-tag"><i class="fas fa-database tech-icon"></i> MySQL</span>
-                                <span class="tech-tag"><i class="fab fa-laravel tech-icon"></i> Laravel</span>
-                                <span class="tech-tag"><i class="fab fa-git-alt tech-icon"></i> Git</span>
-                                <span class="tech-tag"><i class="fab fa-github tech-icon"></i> GitHub</span>
-                                <span class="tech-tag"><i class="fab fa-gitlab tech-icon"></i> GitLab</span>
-                                <span class="tech-tag"><i class="fas fa-brain tech-icon"></i> AI</span>
-                                <span class="tech-tag">
-                                    <span class="tech-icon">
-                                        <!-- Keras SVG (white K on blue background) -->
-                                        <svg width="26" height="26" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                          <rect width="32" height="32" rx="7" fill="#4768be"/>
-                                          <text x="8" y="23" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#fff">K</text>
-                                        </svg>
-                                    </span>
-                                    Keras
-                                </span>
-                                <span class="tech-tag">
-                                    <span class="tech-icon">
-                                        <!-- TensorFlow SVG (official color) -->
-                                        <svg width="20" height="20" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-                                          <path d="m61.55 128-21.84-12.68V40.55L6.81 59.56l.08-28.32L61.55 0zM66.46 0v128l21.84-12.68V79.31l16.49 9.53-.1-24.63-16.39-9.36v-14.3l32.89 19.01-.08-28.32z" fill="#ff6f00" />
-                                        </svg>
-                                    </span>
-                                    TensorFlow
-                                </span>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="section">
-            <div class="container">
-                <h2 class="section-title">Experience</h2>
-                <div class="experience-timeline timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="exp-header">
-                                <span class="exp-left">
-                                    <h3>Software Developer</h3>
-                                    <span class="exp-divider">|</span>
-                                    <h4>Management & Science University</h4>
-                                </span>
-                                <span class="experience-date">Mar 2024 - Present</span>
-                            </div>
-                            <p><i> <b>System Management & Improvement</b></i><br>
-                                I possess strong expertise in system management and improvement, 
-                                covering the full SDLC from documentation and user guides to ongoing 
-                                support and enhancements. My skills include debugging legacy PHP 4 
-                                applications and optimizing PHP 8 systems for performance and scalability. 
-                                I'm proficient in MariaDB and InnoDB database administration, using SQLYog 
-                                for efficient management. I also handle secure remote access (PuTTY), provide 
-                                overseas branch support, and excel in system monitoring and troubleshooting, 
-                                ensuring continuous uptime and real-time operational support.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="exp-header">
-                                <span class="exp-left">
-                                    <h3>Junior Software Developer</h3>
-                                    <span class="exp-divider">|</span>
-                                    <h4>RSA Khidmat & Teknologi Sdn Bhd</h4>
-                                </span>
-                                <span class="experience-date">Jul 2023 - Dec 2023</span>
-                            </div>
-                            <p><i> <b>Full-Stack Exposure & UI/UX Focus</b></i><br>
-                                I have broad full-stack exposure in enterprise software and web development, including experience 
-                                with the Laravel framework and RESTful APIs. My strong front-end skills encompass Vue.js, Bootstrap, 
-                                and advanced CSS, and I'm proficient in database management with DBeaver. A key area of my expertise 
-                                is UI design, where I've developed interfaces for critical features such as user authentication, 
-                                security, and multi-role access (Admin, Student, Sponsor, Lecturer). I'm also experienced in client 
-                                communication, conducting online meetings, and participating in Proof-of-Concept projects, often 
-                                utilizing Figma for UI design across both mobile and web applications.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="exp-header">
-                                <span class="exp-left">
-                                    <h3>Web Developer Intern</h3>
-                                    <span class="exp-divider">|</span>
-                                    <h4>Top Click Sdn Bhd</h4>
-                                </span>
-                                <span class="experience-date">Mar 2023 - Jun 2023</span>
-                            </div>
-                            <p><i>   <b>WordPress & E-commerce Specialist</b></i><br>
-                                I am a skilled WordPress & E-commerce Specialist with expertise in custom website design 
-                                tailored to client needs. I leverage WordPress and plugins like Elementor and WooCommerce, 
-                                alongside HTML, CSS, and PHP, to build robust online presences. My experience includes developing 
-                                effective landing pages for products and services, handling client-requested amendments, and performing 
-                                data entry on Shopify and other client websites. I consistently deliver responsive designs that ensure 
-                                optimal performance across both web and mobile devices, and have provided direct support to headquarters 
-                                in Shah Alam, Selangor.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-            <div class="container">
-                <h2 class="section-title">Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <span>Project 1</span>
-                        </div>
-                        <div class="project-content">
-                            <h3>E-Commerce Platform</h3>
-                            <p>A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, payment processing, and admin dashboard.</p>
-                            <div class="project-tech">
-                                <span>React</span>
-                                <span>Node.js</span>
-                                <span>MongoDB</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <span>Project 2</span>
-                        </div>
-                        <div class="project-content">
-                            <h3>Task Management App</h3>
-                            <p>A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.</p>
-                            <div class="project-tech">
-                                <span>Vue.js</span>
-                                <span>Firebase</span>
-                                <span>CSS3</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <span>Project 3</span>
-                        </div>
-                        <div class="project-content">
-                            <h3>Portfolio Website</h3>
-                            <p>A responsive portfolio website showcasing my work and skills. Built with modern CSS and vanilla JavaScript for optimal performance.</p>
-                            <div class="project-tech">
-                                <span>HTML5</span>
-                                <span>CSS3</span>
-                                <span>JavaScript</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Me Section -->
-        <section id="contact" class="section">
-            <div class="container">
-                <h2 class="section-title">Contact Me</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h3>Get In Touch</h3>
-                        <p>I'm always interested in hearing about new opportunities and exciting projects. Feel free to reach out!</p>
-                        <br>
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <span class="contact-icon">📧</span>
-                                <span>aznalanas.azlan@gmail.com</span>
-                            </div>
-                            <div class="contact-item">
-                                <span class="contact-icon">📱</span>
-                                <span>+60 10-353 3439</span>
-                            </div>
-                            <div class="contact-item">
-                                <span class="contact-icon">📍</span>
-                                <span>Petaling Jaya, Selangor</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <footer class="bg-dark text-white py-3 mt-4">
-        <div class="container d-flex align-items-center justify-content-between flex-wrap">
-            <p class="mb-0">Aznal Anas Copyright 2025</p>
-            <div>
-                <a href="https://github.com/Lanza00" target="_blank" rel="noopener" class="text-white me-3" aria-label="GitHub">
-                    <i class="fab fa-github fa-2x"></i></a>
-                <a href="https://www.linkedin.com/in/aznalanas/" target="_blank" rel="noopener" class="text-white" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin fa-2x"></i>
-                </a>
-            </div>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Software Developer &middot; Petaling Jaya, Malaysia</p>
+          <h1>Hi, I'm Aznal Anas.<br><span class="muted">I build and maintain web systems.</span></h1>
+          <p class="lead">Frontend-focused developer working with Vue.js, React and TypeScript, backed by solid PHP, Laravel and MySQL experience.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">See my projects</a>
+            <a class="btn" href="#posts">What I'm up to</a>
+          </div>
         </div>
-    </footer>
+        <img class="portrait" src="images/profile.jpg" alt="Portrait of Aznal Anas">
+      </div>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <section id="about" class="section">
+      <div class="wrap narrow">
+        <h2>About</h2>
+        <p>I'm a software developer with over three years of experience building and maintaining web applications. Today I focus mainly on the frontend with Vue.js, React and TypeScript, and I bring a full-stack background in PHP (including migrating a legacy system from PHP 4 to PHP 8), Laravel and MySQL.</p>
+        <p>I enjoy troubleshooting and improving existing software so it runs reliably, and I'm currently deepening my knowledge of Python, Java, JavaScript, data structures and algorithms, and machine learning.</p>
+        <h3>Tech stack</h3>
+        <ul class="tags">
+          <li>PHP</li><li>Laravel</li><li>MySQL / MariaDB</li><li>JavaScript</li><li>TypeScript</li><li>Vue.js</li><li>React</li><li>HTML5 &amp; CSS3</li><li>Bootstrap</li><li>C# (reading)</li><li>Python</li><li>Java</li><li>Keras / TensorFlow</li><li>Git, GitHub &amp; GitLab</li><li>Figma</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="experience" class="section alt">
+      <div class="wrap narrow">
+        <h2>Experience</h2>
+        <ol class="timeline">
+          <li>
+            <div class="tl-head"><h3>Digital Developer</h3><span class="date">Oct 2025 &ndash; Present</span></div>
+            <p class="org">Trinergy Digital &middot; Kuala Lumpur (Hybrid)</p>
+            <ul>
+              <li>Own the frontend on most client projects, turning designs and requirements into fast, maintainable interfaces with Vue.js, React and TypeScript.</li>
+              <li>Build and style responsive UIs with Bootstrap and JavaScript, and connect them to backend APIs.</li>
+              <li>Work alongside Laravel backends and read C# services to understand how data flows end to end, so frontend and backend fit together cleanly.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="tl-head"><h3>Software Developer</h3><span class="date">Mar 2024 &ndash; Present</span></div>
+            <p class="org">Management &amp; Science University</p>
+            <ul>
+              <li>Maintain and improve internal systems across the full SDLC, including documentation, user guides and ongoing support.</li>
+              <li>Debug legacy PHP 4 applications and optimise PHP 8 systems for performance and scalability.</li>
+              <li>Administer MariaDB/InnoDB databases and provide remote support for overseas branches.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="tl-head"><h3>Junior Software Developer</h3><span class="date">Jul 2023 &ndash; Dec 2023</span></div>
+            <p class="org">RSA Khidmat &amp; Teknologi Sdn Bhd</p>
+            <ul>
+              <li>Worked across the stack with Laravel, RESTful APIs and Vue.js on enterprise web applications.</li>
+              <li>Designed interfaces in Figma for authentication, security and multi-role access (Admin, Student, Sponsor, Lecturer).</li>
+              <li>Joined client meetings and proof-of-concept projects.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="tl-head"><h3>Web Developer Intern</h3><span class="date">Mar 2023 &ndash; Jun 2023</span></div>
+            <p class="org">Top Click Sdn Bhd</p>
+            <ul>
+              <li>Built custom WordPress and WooCommerce sites with Elementor, HTML, CSS and PHP.</li>
+              <li>Created landing pages, handled client amendments and updated Shopify stores.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="wrap">
+        <h2>Projects</h2>
+        <p class="section-sub">Featured work, followed by more from my GitHub.</p>
+        <div id="featured" class="grid" aria-live="polite"></div>
+        <h3 class="subhead">More on GitHub</h3>
+        <div id="github-repos" class="grid small" aria-live="polite"><p class="loading">Loading repositories&hellip;</p></div>
+      </div>
+    </section>
+
+    <section id="posts" class="section alt">
+      <div class="wrap narrow">
+        <h2>Posts</h2>
+        <p class="section-sub">What I'm doing now, what's in progress, what I'm planning, and what I've put on hold.</p>
+        <div class="filters" id="post-filters" role="group" aria-label="Filter posts"></div>
+        <div id="post-list" class="post-list" aria-live="polite"><p class="loading">Loading posts&hellip;</p></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="wrap narrow">
+        <h2>Contact</h2>
+        <p>Open to new opportunities and interesting projects. Get in touch.</p>
+        <ul class="contact-list">
+          <li><i class="fa fa-envelope"></i><a href="mailto:aznalanas.azlan@gmail.com">aznalanas.azlan@gmail.com</a></li>
+          <li><i class="fa fa-phone"></i><a href="tel:+60103533439">+60 10-353 3439</a></li>
+          <li><i class="fa fa-location-dot"></i>Petaling Jaya, Selangor</li>
+          <li><i class="fab fa-github"></i><a href="https://github.com/Lanza00" target="_blank" rel="noopener">github.com/Lanza00</a></li>
+          <li><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/aznalanas/" target="_blank" rel="noopener">linkedin.com/in/aznalanas</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap"><p>&copy; <span id="year">2026</span> Aznal Anas</p></div>
+  </footer>
 </body>
 </html>

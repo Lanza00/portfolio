@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Wonderland Mini-Game",
+    "description": "Party mini-game themed on Alice in Wonderland, played without looking at the character. Built for a school group activity.",
+    "tech": ["HTML5 Canvas", "JavaScript"],
+    "github": "https://github.com/Lanza00/mini-game-v1",
+    "demo": ""
+  },
+  {
+    "name": "Fruit Ripeness Classifier",
+    "description": "Convolutional neural network that classifies fruit as ripe or not ripe from images.",
+    "tech": ["Python", "CNN", "Jupyter"],
+    "github": "https://github.com/Lanza00/dataDetection",
+    "demo": ""
+  },
+  {
+    "name": "Web Scraper",
+    "description": "Python web scraper with both a command-line and a GUI interface that exports scraped HTML data to CSV or JSON.",
+    "tech": ["Python", "CLI", "GUI"],
+    "github": "https://github.com/Lanza00/web-scrapping",
+    "demo": ""
+  },
+  {
+    "name": "WordRush",
+    "description": "English to Bahasa Melayu translation games for practising vocabulary.",
+    "tech": ["HTML", "JavaScript"],
+    "github": "https://github.com/Lanza00/wordRush",
+    "demo": ""
+  }
+]

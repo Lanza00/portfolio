@@ -1,87 +1,38 @@
+# Aznal Anas - Portfolio
 
----
+Personal portfolio site (HTML, CSS, vanilla JavaScript). Sections: About, Experience, Projects, Posts, Contact.
 
-
-# 🌐 Aznal Anas - Developer Portfolio Website
-
-This is a responsive and modern personal portfolio website built using **HTML5**, **CSS3**, and **JavaScript**. The purpose of this project is to showcase my experience, skills, and projects to potential employers or collaborators.
-
-## 📁 Project Structure
+## Structure
 
 ```
-.
-├── index.html          # Main HTML file with all webpage sections
-├── style.css           # Custom responsive styling and animations
-└── js/
-    └── navigation.js   # JavaScript for mobile navigation interactivity
+index.html      page markup
+style.css       light, minimal styling
+js/main.js      loads projects, GitHub repos and posts
+projects.json   featured projects (edit by hand)
+posts.json      posts (edit by hand)
 ```
 
-## 📄 Description
+## Run locally
 
-### 🔹 `index.html`
-The core of the website containing:
-- **Header**: Avatar and navigation links.
-- **About Me**: Brief self-introduction and profile placeholder.
-- **Experience**: Timeline layout showcasing job roles.
-- **Projects**: A grid-based project showcase with technologies used.
-- **Contact**: Contact details (email, phone, location).
-- **Footer**: Copyright.
+Serve the folder over HTTP (Laragon: http://portfolio.test). Opening index.html directly as a file will not load the JSON files.
 
-### 🔹 `style.css`
-- Responsive layout with modern UI styling.
-- Flexbox and grid layouts for content structure.
-- Hover animations and mobile menu styling.
-- Adaptive design for desktop, tablet, and mobile screens.
+## Add a post
 
-### 🔹 `navigation.js`
-Adds interactivity for mobile users:
-- Hamburger menu toggle for smaller screens.
-- Auto-closing menu on link click or outside click.
-- Disables background scroll when menu is open.
-- Resets menu state when screen is resized.
+Add an object to the top of `posts.json`:
 
-## 📱 Responsive Design
-- Desktop and mobile-friendly layout.
-- Smooth scroll and dynamic menu toggle.
-- Adaptive layout for About, Projects, and Contact sections.
+```json
+{
+  "date": "2026-11-17",
+  "status": "ongoing",
+  "title": "Short title",
+  "body": "What you are doing.",
+  "link": "https://optional-link",
+  "linkText": "Optional link label"
+}
+```
 
-## 📷 Screenshots (Optional)
-> You can add screenshots or a live demo link here.
+`status` is one of: `ongoing`, `planned`, `completed`, `onhold`, `abandoned`.
 
-## 🚀 Getting Started
+## Add a featured project
 
-To view or edit the project locally:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/portfolio-website.git
-   ```
-
-2. Navigate into the directory:
-   ```bash
-   cd portfolio-website
-   ```
-
-3. Open `index.html` in your browser or preferred editor:
-   ```bash
-   open index.html
-   ```
-
-## ✏️ Customization
-
-You can personalize the content by editing:
-
-- Text in `index.html` under `#about`, `#experience`, `#projects`, and `#contact`
-- Styles in `style.css` for color scheme or layout
-- Navigation behavior in `navigation.js`
-
-## 📬 Contact
-
-Feel free to reach out via:
-
-- 📧 Email: aznalanas.azlan@gmail.com  
-- 📍 Location: Petaling Jaya, Selangor
-
----
-
-© 2025 Aznal Anas. All rights reserved.
+Add an object to `projects.json` with `name`, `description`, `tech` (list), `github` and an optional `demo` URL. Other public repos from GitHub (`Lanza00`) appear automatically under "More on GitHub".
