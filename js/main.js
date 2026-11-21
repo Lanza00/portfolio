@@ -94,15 +94,89 @@
     c.appendChild(body);
     return c;
   }
-  function loadShowcase(url, boxId, what) {
+  function loadShowcase(url, boxId, what, done) {
     var box = document.getElementById(boxId);
     getJSON(url).then(function (list) {
       list.forEach(function (p) { box.appendChild(showcaseCard(p)); });
+      if (done) done(box);
     }).catch(function () {
       box.appendChild(el('p', 'empty', what + ' could not be loaded. Open this site through a web server (e.g. Laragon) rather than as a file.'));
     });
   }
-  loadShowcase('projects.json', 'featured', 'Games');
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Cards rise in one after another when the section scrolls into view */
+  function revealOnScroll(box) {
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+    var cards = Array.prototype.slice.call(box.children);
+    cards.forEach(function (c, i) { c.classList.add('reveal'); c.style.setProperty('--i', i); });
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      cards.forEach(function (c) { c.classList.add('in'); });
+      io.disconnect();
+    }, { threshold: 0.15 });
+    io.observe(box);
+  }
+
+  /* Slider: one swipeable row with arrows and dots. Without JS the cards stay a grid. */
+  function makeSlider(box, label) {
+    var cards = box.children;
+    if (cards.length < 2) return;
+    box.classList.add('slider');
+    box.tabIndex = 0; // arrow keys scroll it
+    box.setAttribute('role', 'region');
+    box.setAttribute('aria-label', label + ' (swipe or use the arrows)');
+
+    var nav = el('div', 'slider-nav');
+    var prev = el('button', 'slider-btn', '\u2039');
+    var next = el('button', 'slider-btn', '\u203A');
+    prev.type = next.type = 'button';
+    prev.setAttribute('aria-label', 'Previous');
+    next.setAttribute('aria-label', 'Next');
+    var dots = el('div', 'slider-dots');
+    Array.prototype.forEach.call(cards, function (c, i) {
+      var d = el('button', 'dot');
+      d.type = 'button';
+      d.setAttribute('aria-label', 'Show ' + c.querySelector('h3').textContent);
+      d.addEventListener('click', function () { go(i); });
+      dots.appendChild(d);
+    });
+    nav.appendChild(prev); nav.appendChild(dots); nav.appendChild(next);
+    box.parentNode.insertBefore(nav, box.nextSibling);
+
+    function step() { return cards[1].offsetLeft - cards[0].offsetLeft; }
+    function go(i) { box.scrollTo({ left: cards[i].offsetLeft - cards[0].offsetLeft }); }
+    prev.addEventListener('click', function () { box.scrollBy({ left: -step() }); });
+    next.addEventListener('click', function () { box.scrollBy({ left: step() }); });
+
+    function update() {
+      var max = box.scrollWidth - box.clientWidth;
+      nav.hidden = max < 4; // everything fits, no need for controls
+      prev.disabled = box.scrollLeft < 4;
+      next.disabled = box.scrollLeft > max - 4;
+      // Light up the dot of every card that is mostly on screen
+      var left = box.scrollLeft, right = left + box.clientWidth;
+      Array.prototype.forEach.call(cards, function (c, i) {
+        var x = c.offsetLeft - cards[0].offsetLeft + 4, mid = x + c.offsetWidth / 2;
+        dots.children[i].classList.toggle('on', mid > left && mid < right);
+      });
+    }
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; update(); });
+    }
+    box.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+  }
+
+  loadShowcase('projects.json', 'featured', 'Games', function (box) {
+    makeSlider(box, 'Games');
+    revealOnScroll(box);
+  });
   loadShowcase('apps.json', 'apps-list', 'Projects');
 
   /* Posts (posts.json) */
@@ -146,7 +220,6 @@
   });
 
   // Experience: smooth open/close for <details class="job">. Without JS, native toggle still works.
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('details.job').forEach(function (d) {
     var body = d.querySelector('.job-body');
     var anim = null;

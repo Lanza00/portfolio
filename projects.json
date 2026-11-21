@@ -1,5 +1,14 @@
 [
   {
+    "name": "Apex Club",
+    "label": "Racing · 3 laps",
+    "description": "Top-down rally racer. Drive the orange car around Pinecrest Circuit and beat three computer drivers over three laps. Works with keyboard or touch, and saves your best lap. Made with ChatGPT Astra.",
+    "tech": ["Phaser", "TypeScript", "Vite"],
+    "image": "images/game-apex-club.jpg",
+    "github": "https://github.com/Lanza00/apex-club",
+    "demo": "https://lanza00.github.io/apex-club/dist/"
+  },
+  {
     "name": "Wonderland Mini-Game",
     "label": "Party game · Team play",
     "description": "Party mini-game themed on Alice in Wonderland, played without looking at the character. Your team guides you to put the missing piece back. Built for a school group activity.",
