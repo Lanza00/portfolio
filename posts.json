@@ -1,28 +1,123 @@
-[
-  {
-    "date": "2026-11-17",
-    "status": "ongoing",
-    "title": "Refactoring old code and improving myself",
-    "body": "Going back through some of my older projects to refactor and update the code, cleaning up structure and fixing things I would do differently now. It's also my way of practising and levelling up as a developer."
-  },
-  {
-    "date": "2026-11-17",
-    "status": "ongoing",
-    "title": "Rebuilding this portfolio",
-    "body": "Rewriting the site with a cleaner layout and three parts: About, Projects and Posts. Posts is where I will share what I am working on, what is in progress and what I plan next."
-  },
-  {
-    "date": "2026-11-16",
-    "status": "completed",
-    "title": "Shipped the Wonderland party mini-game",
-    "body": "A browser mini-game themed on Alice in Wonderland, built for a group activity. Players try to place the item without looking at the character.",
-    "link": "https://github.com/Lanza00/mini-game-v1",
-    "linkText": "View on GitHub"
-  },
-  {
-    "date": "2026-11-08",
-    "status": "planned",
-    "title": "Auto-subtitle app for my videos",
-    "body": "Planning a small app that transcribes my edited videos (Malay and English) and adds TikTok-style subtitles. Running locally first, possibly hosted later."
-  }
-]
+{
+  "now": [
+    {
+      "title": "Rebuilding this portfolio",
+      "note": "Games and Projects sliders done. Now: this Posts section.",
+      "status": "ongoing",
+      "progress": 75
+    },
+    {
+      "title": "Refactoring my old projects",
+      "note": "Cleaning up structure and fixing things I'd do differently now.",
+      "status": "ongoing",
+      "progress": 30
+    },
+    {
+      "title": "Auto-subtitle app for my videos",
+      "note": "Transcribes Malay and English and adds TikTok-style subtitles.",
+      "status": "planned",
+      "progress": 5
+    }
+  ],
+  "posts": [
+    {
+      "date": "2026-11-20",
+      "tag": "Build log",
+      "title": "Adding a safe demo mode to a client app",
+      "excerpt": "My Medicine Tracker is a private client app with no login. Here's how I made a public demo anyone can try, without ever touching the real data.",
+      "shots": [
+        "images/medicine-1.jpg",
+        "images/medicine-2.jpg",
+        "images/medicine-3.jpg"
+      ],
+      "coverColor": "#dbe6ff",
+      "body": [
+        "Medicine Tracker is a phone-first app I built for a client who tracks daily medicine for their pets. It has no login on purpose: one client, one database, open the app and tick the dose. That's great for the client, but it means I can't just share the link in my portfolio.",
+        "So I added a demo mode. One environment variable (NEXT_PUBLIC_DEMO_MODE=1) on a separate Vercel project turns the same code into a safe public demo:",
+        "- Every visitor starts with the same made-up pets (Milo, Coco and Oreo) and a few weeks of sample history.",
+        "- Changes are saved in the visitor's own browser cookie, so nobody sees anyone else's edits. A Reset demo button brings the sample data back.",
+        "- The database client refuses to start in demo mode, so it can't reach Supabase even by mistake, and push notifications are switched off.",
+        "What I learned: making a demo safe is a design decision, not an afterthought. Failing closed (the database simply won't start) is much easier to trust than remembering to hide things one by one."
+      ],
+      "links": [
+        {
+          "url": "https://medicine-tracker-demo.vercel.app",
+          "text": "Try the live demo"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-19",
+      "tag": "AI experiment",
+      "title": "Building a racing game with ChatGPT Astra",
+      "excerpt": "Apex Club is a top-down rally racer made with an AI coding agent. My job shifted from typing code to describing, testing and steering.",
+      "image": "images/game-apex-club.jpg",
+      "body": [
+        "Apex Club is a top-down rally racer: drive the orange car around Pinecrest Circuit and beat three computer drivers over three laps. It's built with Phaser, TypeScript and Vite, and I made it with ChatGPT Astra.",
+        "Working with an AI agent changed what my job was. Instead of writing every line, I spent my time describing how the game should feel, playing each build, and pointing out what was off.",
+        "- Clear, specific requests worked far better than vague ones. \"The car should slide a little in corners\" beats \"make it feel better\".",
+        "- Testing is still on me. Keyboard and touch controls, the lap counter and saving the best lap all needed real play-testing.",
+        "- Knowing the code matters. When something broke, being able to read the TypeScript made fixing it much faster.",
+        "It runs in the browser on desktop and phone, so give it a try and see if you can beat my best lap."
+      ],
+      "links": [
+        {
+          "url": "https://lanza00.github.io/apex-club/dist/",
+          "text": "Play Apex Club"
+        },
+        {
+          "url": "https://github.com/Lanza00/apex-club",
+          "text": "View code"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-18",
+      "tag": "Before / After",
+      "title": "Redesigning my portfolio from scratch",
+      "excerpt": "My old site had a wall of text, placeholder projects and nothing to click. Here's what I changed so visitors can see and try my work in seconds.",
+      "image": "images/post-redesign-cover.jpg",
+      "gallery": [
+        {
+          "src": "images/post-redesign-top.jpg",
+          "caption": "First screen: a long About Me paragraph before, a clear intro and two actions after."
+        },
+        {
+          "src": "images/post-redesign-projects.jpg",
+          "caption": "Projects: grey \"Project 1, 2, 3\" placeholders before, real games you can play after."
+        }
+      ],
+      "body": [
+        "My first portfolio did the job of existing, but not much more. It opened with a long About Me paragraph, the projects were placeholders with grey boxes, and there was nothing a visitor could actually try.",
+        "So I rebuilt it with one rule: show the work, don't describe it.",
+        "- A short intro at the top says who I am and what I do in two lines, with buttons straight to my games and posts.",
+        "- Real projects replaced the placeholders. Every game has a cover and a Play now button, and every web app shows real phone screenshots.",
+        "- Games and Projects sit in swipeable sliders, so the page stays short and works well on phones.",
+        "- Experience is split into collapsible jobs instead of long paragraphs.",
+        "- A new Posts section, the one you're reading, shares build logs and what I'm working on now.",
+        "It's plain HTML, CSS and JavaScript with the content in JSON files, so adding a new project or post is just editing one file."
+      ]
+    },
+    {
+      "date": "2026-11-16",
+      "tag": "Shipped",
+      "title": "Shipped the Wonderland party mini-game",
+      "excerpt": "A browser mini-game themed on Alice in Wonderland, built for a group activity. Players try to place the item without looking at the character.",
+      "image": "images/game-wonderland.jpg",
+      "body": [
+        "A browser mini-game themed on Alice in Wonderland, built for a school group activity. One player places the missing piece without looking at the screen while the team shouts directions.",
+        "Built with HTML5 Canvas and plain JavaScript, so it runs on any laptop or projector without installing anything."
+      ],
+      "links": [
+        {
+          "url": "https://lanza00.github.io/mini-game-v1/",
+          "text": "Play it"
+        },
+        {
+          "url": "https://github.com/Lanza00/mini-game-v1",
+          "text": "View on GitHub"
+        }
+      ]
+    }
+  ]
+}

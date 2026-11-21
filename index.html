@@ -149,13 +149,18 @@
     </section>
 
     <section id="posts" class="section alt">
-      <div class="wrap narrow">
+      <div class="wrap">
         <h2>Posts</h2>
-        <p class="section-sub">What I'm doing now, what's in progress, what I'm planning, and what I've put on hold.</p>
-        <div class="filters" id="post-filters" role="group" aria-label="Filter posts"></div>
-        <div id="post-list" class="post-list" aria-live="polite"><p class="loading">Loading posts&hellip;</p></div>
+        <p class="section-sub">Build logs, lessons learned and what I'm working on right now.</p>
+        <div id="now-list" class="now" aria-live="polite"></div>
+        <div id="post-list" class="games posts" aria-live="polite"><p class="loading">Loading posts&hellip;</p></div>
       </div>
     </section>
+
+    <dialog id="post-dialog" class="post-dialog" aria-labelledby="post-dialog-title">
+      <button type="button" class="post-dialog-close" aria-label="Close post">&times;</button>
+      <div class="post-dialog-body"></div>
+    </dialog>
 
     <section id="contact" class="section">
       <div class="wrap narrow">
