@@ -1,23 +1,20 @@
 [
   {
     "name": "Wonderland Mini-Game",
-    "description": "Party mini-game themed on Alice in Wonderland, played without looking at the character. Built for a school group activity.",
+    "label": "Party game · Team play",
+    "description": "Party mini-game themed on Alice in Wonderland, played without looking at the character. Your team guides you to put the missing piece back. Built for a school group activity.",
     "tech": ["HTML5 Canvas", "JavaScript"],
+    "image": "images/game-wonderland.jpg",
     "github": "https://github.com/Lanza00/mini-game-v1",
-    "demo": ""
+    "demo": "https://lanza00.github.io/mini-game-v1/"
   },
   {
-    "name": "Fruit Ripeness Classifier",
-    "description": "Convolutional neural network that classifies fruit as ripe or not ripe from images.",
-    "tech": ["Python", "CNN", "Jupyter"],
-    "github": "https://github.com/Lanza00/dataDetection",
-    "demo": ""
-  },
-  {
-    "name": "Web Scraper",
-    "description": "Python web scraper with both a command-line and a GUI interface that exports scraped HTML data to CSV or JSON.",
-    "tech": ["Python", "CLI", "GUI"],
-    "github": "https://github.com/Lanza00/web-scrapping",
-    "demo": ""
+    "name": "WordRush",
+    "label": "Educational · 4 levels",
+    "description": "Malay to English typing and translation game. Type the right translation as fast as you can, from beginner up to expert vocabulary.",
+    "tech": ["HTML", "JavaScript"],
+    "image": "images/game-wordrush.jpg",
+    "github": "https://github.com/Lanza00/wordRush",
+    "demo": "https://lanza00.github.io/wordRush/"
   }
 ]
