@@ -76,6 +76,10 @@ h3{font-size:1.05rem}
 .grid.small .card{padding:1rem}
 .grid.small .card h3{font-size:1rem}
 .meta{color:var(--muted);font-size:.8rem}
+.card-head{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem}
+.stars{color:var(--muted);font-size:.85rem;white-space:nowrap}
+.card[hidden]{display:none}
+.more-toggle{display:block;margin:1.25rem auto 0}
 .subhead{margin-top:3rem !important}
 .loading,.empty{color:var(--muted)}
 

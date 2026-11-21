@@ -19,12 +19,5 @@
     "tech": ["Python", "CLI", "GUI"],
     "github": "https://github.com/Lanza00/web-scrapping",
     "demo": ""
-  },
-  {
-    "name": "WordRush",
-    "description": "English to Bahasa Melayu translation games for practising vocabulary.",
-    "tech": ["HTML", "JavaScript"],
-    "github": "https://github.com/Lanza00/wordRush",
-    "demo": ""
   }
 ]

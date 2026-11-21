@@ -1,6 +1,11 @@
 (function () {
   'use strict';
   var GITHUB_USER = 'Lanza00';
+  // Repos to keep out of "More on GitHub" (lowercase). Forks and featured repos are hidden automatically.
+  var HIDDEN_REPOS = ['lanza00', 'portfolio', 'crud', 'laravel-10-registration-form'];
+  var REPOS_VISIBLE = 6; // cards shown before "Show all"
+  var REPO_CACHE_KEY = 'gh-repos-' + GITHUB_USER;
+  var REPO_CACHE_MS = 60 * 60 * 1000; // 1 hour
   var STATUS = {
     ongoing: 'Ongoing',
     planned: 'Planned',
@@ -73,28 +78,81 @@
   }).then(loadRepos);
 
   /* GitHub repos (auto) */
+  // Cached for an hour so repeat visits are instant and stay under GitHub's 60 requests/hour limit.
+  function readRepoCache(allowStale) {
+    try {
+      var c = JSON.parse(localStorage.getItem(REPO_CACHE_KEY));
+      if (c && Array.isArray(c.repos) && (allowStale || Date.now() - c.time < REPO_CACHE_MS)) return c.repos;
+    } catch (e) {}
+    return null;
+  }
+  function fetchRepos() {
+    var fresh = readRepoCache(false);
+    if (fresh) return Promise.resolve(fresh);
+    return fetch('https://api.github.com/users/' + GITHUB_USER + '/repos?per_page=100&sort=pushed')
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (data) {
+        // Keep only the fields we render, so the cache stays small.
+        var repos = data.map(function (r) {
+          return { name: r.name, description: r.description, language: r.language, fork: r.fork,
+            stars: r.stargazers_count, topics: r.topics || [], url: r.html_url, homepage: r.homepage, pushed: r.pushed_at };
+        });
+        try { localStorage.setItem(REPO_CACHE_KEY, JSON.stringify({ time: Date.now(), repos: repos })); } catch (e) {}
+        return repos;
+      })
+      .catch(function (err) {
+        var stale = readRepoCache(true); // rate-limited or offline: an older copy beats an error
+        if (stale) return stale;
+        throw err;
+      });
+  }
+  function repoCard(r) {
+    var c = el('article', 'card');
+    var head = el('div', 'card-head');
+    head.appendChild(el('h3', null, r.name));
+    if (r.stars) {
+      var s = el('span', 'stars', '★ ' + r.stars);
+      s.setAttribute('aria-label', r.stars + (r.stars === 1 ? ' star' : ' stars'));
+      head.appendChild(s);
+    }
+    c.appendChild(head);
+    c.appendChild(el('p', null, r.description || 'No description yet.'));
+    if (r.topics.length) c.appendChild(tagList(r.topics.slice(0, 4)));
+    var meta = [r.language, 'Updated ' + fmtDate(r.pushed)].filter(Boolean).join(' · ');
+    c.appendChild(el('span', 'meta', meta));
+    var links = el('div', 'card-links');
+    if (safeUrl(r.homepage)) links.appendChild(link(r.homepage, 'Live demo'));
+    links.appendChild(link(r.url, 'GitHub'));
+    c.appendChild(links);
+    return c;
+  }
   function loadRepos() {
     var box = document.getElementById('github-repos');
-    fetch('https://api.github.com/users/' + GITHUB_USER + '/repos?per_page=100&sort=pushed')
-      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    fetchRepos()
       .then(function (repos) {
         box.textContent = '';
         var shown = repos.filter(function (r) {
-          return !r.fork && r.name.toLowerCase() !== GITHUB_USER.toLowerCase() &&
-            featuredNames.indexOf(r.name.toLowerCase()) === -1;
+          var n = r.name.toLowerCase();
+          return !r.fork && HIDDEN_REPOS.indexOf(n) === -1 && featuredNames.indexOf(n) === -1;
         });
         if (!shown.length) { box.appendChild(el('p', 'empty', 'No additional repositories to show.')); return; }
-        shown.forEach(function (r) {
-          var c = el('article', 'card');
-          c.appendChild(el('h3', null, r.name));
-          c.appendChild(el('p', null, r.description || 'No description yet.'));
-          var meta = [r.language, 'Updated ' + fmtDate(r.pushed_at)].filter(Boolean).join(' · ');
-          c.appendChild(el('span', 'meta', meta));
-          var links = el('div', 'card-links');
-          links.appendChild(link(r.html_url, 'GitHub'));
-          c.appendChild(links);
+        shown.forEach(function (r, i) {
+          var c = repoCard(r);
+          if (i >= REPOS_VISIBLE) c.hidden = true;
           box.appendChild(c);
         });
+        if (shown.length > REPOS_VISIBLE) {
+          var btn = el('button', 'chip more-toggle', 'Show all ' + shown.length);
+          btn.type = 'button';
+          btn.setAttribute('aria-expanded', 'false');
+          btn.addEventListener('click', function () {
+            var open = btn.getAttribute('aria-expanded') !== 'true';
+            Array.prototype.forEach.call(box.children, function (c, i) { if (i >= REPOS_VISIBLE) c.hidden = !open; });
+            btn.setAttribute('aria-expanded', String(open));
+            btn.textContent = open ? 'Show less' : 'Show all ' + shown.length;
+          });
+          box.insertAdjacentElement('afterend', btn);
+        }
       })
       .catch(function () {
         box.textContent = '';
