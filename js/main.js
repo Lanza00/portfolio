@@ -177,7 +177,10 @@
     makeSlider(box, 'Games');
     revealOnScroll(box);
   });
-  loadShowcase('apps.json', 'apps-list', 'Projects');
+  loadShowcase('apps.json', 'apps-list', 'Projects', function (box) {
+    makeSlider(box, 'Projects');
+    revealOnScroll(box);
+  });
 
   /* Posts (posts.json) */
   var posts = [], active = 'all';

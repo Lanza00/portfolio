@@ -20,5 +20,15 @@
     "demo": "https://kad-kahwin-chi.vercel.app",
     "demoText": "View live demo",
     "note": "Demo uses sample names."
+  },
+  {
+    "name": "Attendance Tracker",
+    "label": "Personal project · QR check-in",
+    "description": "Mobile check-in form for events. Guests scan a QR code, enter their name and address, and each check-in is saved as a new row in a private Google Sheet. The Google login stays on the server, so it never reaches the browser.",
+    "tech": ["Next.js", "TypeScript", "Google Sheets API", "Vercel"],
+    "shots": ["images/attendance-1.jpg", "images/attendance-2.jpg", "images/attendance-3.jpg"],
+    "coverColor": "#e3ebf7",
+    "github": "https://github.com/Lanza00/attendance-tracker",
+    "note": "The live form saves to a real sheet, so only screenshots are shown here."
   }
 ]
