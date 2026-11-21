@@ -6,8 +6,10 @@
     "tech": ["Next.js 15", "TypeScript", "Supabase", "PWA", "Web Push"],
     "shots": ["images/medicine-1.jpg", "images/medicine-2.jpg", "images/medicine-3.jpg"],
     "coverColor": "#dbe6ff",
+    "demo": "https://medicine-tracker-demo.vercel.app",
+    "demoText": "View live demo",
     "github": "https://github.com/Lanza00/medicine-tracker",
-    "note": "Live app is private to the client. Screenshots use sample data."
+    "note": "Demo uses sample pets. The client's real app stays private."
   },
   {
     "name": "Kad Kahwin Digital",
