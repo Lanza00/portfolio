@@ -50,46 +50,60 @@
   });
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* Games (projects.json) */
-  getJSON('projects.json').then(function (list) {
-    var box = document.getElementById('featured');
-    list.forEach(function (p) {
-      var demo = safeUrl(p.demo);
-      var c = el('article', 'game-card');
-      if (p.image) {
-        // Cover: clickable screenshot with a play badge (decorative duplicate of the Play button, so hidden from screen readers)
-        var cover = el(demo ? 'a' : 'div', 'game-cover');
-        if (demo) { cover.href = demo; cover.target = '_blank'; cover.rel = 'noopener'; cover.tabIndex = -1; cover.setAttribute('aria-hidden', 'true'); }
+  /* Showcase cards: games (projects.json) and web apps (apps.json) share one card layout.
+     Fields: name, label, description, tech[], image (one cover) or shots[] (phone screenshots),
+     demo (live link), demoText (button text, default "Play now"), github, note (small print). */
+  function showcaseCard(p) {
+    var demo = safeUrl(p.demo);
+    var c = el('article', 'game-card');
+    var shots = p.shots || [];
+    if (p.image || shots.length) {
+      // Cover duplicates the main button, so it is hidden from screen readers and the tab order
+      var cover = el(demo ? 'a' : 'div', 'game-cover' + (shots.length ? ' phones' : ''));
+      if (demo) { cover.href = demo; cover.target = '_blank'; cover.rel = 'noopener'; cover.tabIndex = -1; cover.setAttribute('aria-hidden', 'true'); }
+      if (p.coverColor) cover.style.setProperty('--cover', p.coverColor);
+      (shots.length ? shots : [p.image]).forEach(function (src) {
         var img = el('img');
-        img.src = p.image; img.alt = ''; img.loading = 'lazy'; img.width = 800; img.height = 500;
+        img.src = src; img.alt = ''; img.loading = 'lazy';
+        if (shots.length) { img.width = 469; img.height = 1015; } else { img.width = 800; img.height = 500; }
         cover.appendChild(img);
-        if (demo) cover.appendChild(el('span', 'play-badge', '▶'));
-        c.appendChild(cover);
-      }
-      var body = el('div', 'game-body');
-      if (p.label) body.appendChild(el('span', 'game-label', p.label));
-      body.appendChild(el('h3', null, p.name));
-      body.appendChild(el('p', null, p.description));
-      body.appendChild(tagList(p.tech));
-      var links = el('div', 'game-actions');
-      if (demo) {
-        var play = link(demo, '▶ Play now');
-        play.className = 'btn btn-primary';
-        play.setAttribute('aria-label', 'Play ' + p.name + ' (opens in a new tab)');
-        links.appendChild(play);
-      }
-      if (safeUrl(p.github)) {
-        var gh = link(p.github, 'View code');
-        gh.className = 'btn';
-        links.appendChild(gh);
-      }
-      body.appendChild(links);
-      c.appendChild(body);
-      box.appendChild(c);
+      });
+      if (demo) cover.appendChild(el('span', 'play-badge', '▶'));
+      c.appendChild(cover);
+    }
+    var body = el('div', 'game-body');
+    if (p.label) body.appendChild(el('span', 'game-label', p.label));
+    body.appendChild(el('h3', null, p.name));
+    body.appendChild(el('p', null, p.description));
+    body.appendChild(tagList(p.tech));
+    var links = el('div', 'game-actions');
+    if (demo) {
+      var text = p.demoText || 'Play now';
+      var main = link(demo, '▶ ' + text);
+      main.className = 'btn btn-primary';
+      main.setAttribute('aria-label', text + ': ' + p.name + ' (opens in a new tab)');
+      links.appendChild(main);
+    }
+    if (safeUrl(p.github)) {
+      var gh = link(p.github, 'View code');
+      gh.className = 'btn' + (demo ? '' : ' btn-primary');
+      links.appendChild(gh);
+    }
+    body.appendChild(links);
+    if (p.note) body.appendChild(el('span', 'game-note', p.note));
+    c.appendChild(body);
+    return c;
+  }
+  function loadShowcase(url, boxId, what) {
+    var box = document.getElementById(boxId);
+    getJSON(url).then(function (list) {
+      list.forEach(function (p) { box.appendChild(showcaseCard(p)); });
+    }).catch(function () {
+      box.appendChild(el('p', 'empty', what + ' could not be loaded. Open this site through a web server (e.g. Laragon) rather than as a file.'));
     });
-  }).catch(function () {
-    document.getElementById('featured').appendChild(el('p', 'empty', 'Games could not be loaded. Open this site through a web server (e.g. Laragon) rather than as a file.'));
-  });
+  }
+  loadShowcase('projects.json', 'featured', 'Games');
+  loadShowcase('apps.json', 'apps-list', 'Projects');
 
   /* Posts (posts.json) */
   var posts = [], active = 'all';

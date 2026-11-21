@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Medicine Tracker",
+    "label": "Client project · Mobile PWA",
+    "description": "Phone-first app a pet owner uses every day to track each pet's medicine. Tick off morning and evening doses, add remarks, get push reminders, and export the full history to CSV.",
+    "tech": ["Next.js 15", "TypeScript", "Supabase", "PWA", "Web Push"],
+    "shots": ["images/medicine-1.jpg", "images/medicine-2.jpg", "images/medicine-3.jpg"],
+    "coverColor": "#dbe6ff",
+    "github": "https://github.com/Lanza00/medicine-tracker",
+    "note": "Live app is private to the client. Screenshots use sample data."
+  },
+  {
+    "name": "Kad Kahwin Digital",
+    "label": "Personal project · Wedding invite",
+    "description": "Animated digital wedding invitation with an opening seal, live countdown, five colour themes, RSVP and guest wishes, plus a PIN-protected admin page for the guest list.",
+    "tech": ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "Supabase"],
+    "shots": ["images/kad-1.jpg", "images/kad-2.jpg", "images/kad-3.jpg"],
+    "coverColor": "#d5efe2",
+    "demo": "https://kad-kahwin-chi.vercel.app",
+    "demoText": "View live demo",
+    "note": "Demo uses sample names."
+  }
+]
