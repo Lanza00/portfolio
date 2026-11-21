@@ -143,4 +143,30 @@
     document.getElementById('post-list').textContent = '';
     document.getElementById('post-list').appendChild(el('p', 'empty', 'Posts could not be loaded. Open this site through a web server (e.g. Laragon) rather than as a file.'));
   });
+
+  // Experience: smooth open/close for <details class="job">. Without JS, native toggle still works.
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('details.job').forEach(function (d) {
+    var body = d.querySelector('.job-body');
+    var anim = null;
+    d.querySelector('summary').addEventListener('click', function (e) {
+      if (reduceMotion || !body.animate) return;
+      e.preventDefault();
+      var start = d.open ? body.getBoundingClientRect().height : 0; // read before cancel so a mid-animation click doesn't jump
+      if (anim) anim.cancel();
+      var closing = d.open && !d.classList.contains('closing');
+      if (closing) {
+        d.classList.add('closing');
+      } else {
+        d.classList.remove('closing');
+        d.open = true;
+      }
+      var end = closing ? 0 : body.scrollHeight;
+      anim = body.animate({ height: [start + 'px', end + 'px'] }, { duration: 200, easing: 'ease' });
+      anim.onfinish = function () {
+        anim = null;
+        if (closing) { d.open = false; d.classList.remove('closing'); }
+      };
+    });
+  });
 })();
