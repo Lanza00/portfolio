@@ -21,6 +21,33 @@
   ],
   "posts": [
     {
+      "date": "2026-11-29",
+      "tag": "AI experiment",
+      "title": "Building a cosy block puzzle with Claude",
+      "excerpt": "Gridlock Garden is a relaxing 8×8 block puzzle I made with Claude. This time I focused on getting the rules right and keeping them tested before adding the polish.",
+      "image": "images/game-gridlock-garden.jpg",
+      "body": [
+        "Gridlock Garden is a cosy block-placement puzzle: drag pastel garden tiles onto an 8×8 bed, fill whole rows or columns, and watch them bloom away in a burst of petals. It's built with Phaser 3, TypeScript, Vite and Vitest, and I made it with Claude.",
+        "After building Apex Club with ChatGPT Astra, I wanted to try a different AI agent on a different kind of game. A puzzle game lives or dies by its rules, so I kept the focus there.",
+        "- Rules first, graphics second. Everything about placing pieces, clearing lines, scoring, combos and game over is plain TypeScript with no Phaser code, so it can be tested without a browser. Phaser just animates what the rules say happened.",
+        "- 71 unit tests, including one that plays a full game from start to finish with a seeded random generator, so it gives the same result every run.",
+        "- No image or sound files. Tiles, petals and the board are drawn in code, and the sound effects are generated with the Web Audio API.",
+        "- Then the polish: one undo per game (it can even rescue a game that just ended), a hint button, phone vibration when you place and clear, four themes including a dark Night Garden, and a stats screen showing your last 10 scores.",
+        "What I learned: keeping the rules separate and tested made it easy to keep adding features like undo and stats without worrying about breaking the scoring.",
+        "It works on desktop and phone, and your best score is saved in your browser. Give it a go."
+      ],
+      "links": [
+        {
+          "url": "https://lanza00.github.io/gridlock-garden/",
+          "text": "Play Gridlock Garden"
+        },
+        {
+          "url": "https://github.com/Lanza00/gridlock-garden",
+          "text": "View code"
+        }
+      ]
+    },
+    {
       "date": "2026-11-20",
       "tag": "Build log",
       "title": "Adding a safe demo mode to a client app",
