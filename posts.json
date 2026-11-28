@@ -2,9 +2,9 @@
   "now": [
     {
       "title": "Rebuilding this portfolio",
-      "note": "Games and Projects sliders done. Now: this Posts section.",
-      "status": "ongoing",
-      "progress": 75
+      "note": "Done: sliders, Posts, collapsible Experience, a favicon, and SEO so it now shows up on Google.",
+      "status": "completed",
+      "progress": 100
     },
     {
       "title": "Refactoring my old projects",

@@ -1,5 +1,14 @@
 [
   {
+    "name": "Gridlock Garden",
+    "label": "Puzzle · 8×8 board",
+    "description": "Cosy block-placement puzzle. Drag pastel garden tiles onto an 8×8 bed, fill rows and columns to make them bloom away, and chain combos for big scores. Has undo, hints, phone haptics and saves your best score. Made with Claude.",
+    "tech": ["Phaser", "TypeScript", "Vite", "Vitest"],
+    "image": "images/game-gridlock-garden.jpg",
+    "github": "https://github.com/Lanza00/gridlock-garden",
+    "demo": "https://lanza00.github.io/gridlock-garden/"
+  },
+  {
     "name": "Apex Club",
     "label": "Racing · 3 laps",
     "description": "Top-down rally racer. Drive the orange car around Pinecrest Circuit and beat three computer drivers over three laps. Works with keyboard or touch, and saves your best lap. Made with ChatGPT Astra.",
